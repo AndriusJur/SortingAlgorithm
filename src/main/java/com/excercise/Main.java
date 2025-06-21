@@ -1,11 +1,17 @@
 package com.excercise;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
         int[] array = {4, 1, 4, 84, 7, 3, 100, 1, 100, 0, 5, 99, 3, 12, 1};
         sort(array);
+        System.out.println("The following was sorted with streams: " );
+        sortWithStreams(array);
+        System.out.println("The following was  sorted with Arrays.sort: " );
+        Arrays.sort(array);
+        System.out.println(Arrays.toString(array));
     }
 
     public static int smallest(int[] array) {
@@ -39,5 +45,10 @@ public class Main {
             swap(array, i, minIndex);
             System.out.println(Arrays.toString(array));
         }
+    }
+
+    public static void sortWithStreams (int [] array){
+        int []sorted= Arrays.stream(array).sorted().toArray();
+        System.out.println(Arrays.toString(sorted));
     }
 }
